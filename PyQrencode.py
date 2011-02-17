@@ -34,7 +34,7 @@ import gobject
 
 class PyQrDesktop(object):
 
-	default_site = "/temp/QRcode" # Default location for webkit
+	default_site = "/tmp/QRcode" # Default location for webkit
 
 	def on_window_main_destroy(self, widget, data=None):
 		gtk.main_quit()
@@ -56,7 +56,7 @@ class PyQrDesktop(object):
 		string_var = self.string.get_text()	
 		pix_var = self.pixels.get_value()
 		mar_var = self.margin.get_value()
-		call(['qrencode', '-s', str(pix_var), '-m', str(mar_var), '-o', '/temp/QRcode', str(string_var)])
+		call(['qrencode', '-s', str(pix_var), '-m', str(mar_var), '-o', '/tmp/QRcode', str(string_var)])
 		self.web_view.open(self.default_site)
 		print "Pixel:", pix_var
 		print "Margin:", mar_var
